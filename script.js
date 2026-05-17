@@ -2,6 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Initial Setup
     document.querySelector('.hero').classList.add('loaded');
 
+    // 1.25 Mobile Hamburger Menu Toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navActions = document.querySelector('.nav-actions');
+
+    menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        navActions.classList.toggle('nav-open', isOpen);
+        menuBtn.classList.toggle('active', isOpen);
+        // Prevent page scroll while menu is open
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close the menu when any nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-open');
+            navActions.classList.remove('nav-open');
+            menuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
     // 1.5 Hero Slider
     const heroBgs = document.querySelectorAll('.hero-bg');
     if (heroBgs.length > 1) {
