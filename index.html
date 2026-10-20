@@ -256,33 +256,459 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="subtitle">Our Work in Action</span>
-                <h2 class="title">Gallery</h2>
-                <p class="desc">A glimpse into our community outreach, events, and the impact we are making in Khana
-                    Ogoni.</p>
+                <h2 class="title">Gallery & Milestones</h2>
+                <p class="desc">A glimpse into our milestone house commissioning, leadership honors, community outreach, and the lasting impact we are making across Khana Ogoni.</p>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item tilt-effect">
-                    <img src="aimf-community-support-khana-ogoni.jpeg" alt="Community Support Event in Khana Ogoni">
+            <!-- Featured Loop Slider for Latest Milestones -->
+            <div class="gallery-slider-wrapper">
+                <div class="gallery-slider-header">
+                    <div class="slider-badge-title">
+                        <span class="badge-pill"><i class="fas fa-star"></i> Featured Highlights</span>
+                        <h3 class="slider-heading">Recent Milestone: House Commissioning & Honours</h3>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-arrow prev-slide" id="galleryPrevBtn" aria-label="Previous Slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slider-play-indicator" id="sliderPlayStatus" title="Autoplay Active">
+                            <span class="pulse-dot"></span>
+                            <span class="indicator-text">Auto-looping</span>
+                        </div>
+                        <button class="slider-arrow next-slide" id="galleryNextBtn" aria-label="Next Slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="gallery-item tilt-effect">
-                    <img src="education-ngo-khana-ogoni.jpeg" alt="Education NGO Programs in Khana Ogoni">
+
+                <div class="gallery-slider-container" id="gallerySliderContainer">
+                    <div class="gallery-slider-track" id="gallerySliderTrack">
+                        <!-- Slide 1 -->
+                        <div class="gallery-slide" data-index="0">
+                            <div class="slide-media">
+                                <img src="aimf-birthday-charity-house-commissioning-flyer.jpeg" alt="Chief Igerebu Idemyor Birthday Charity House Commissioning" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-home"></i> Birthday Charity</span>
+                                    <h4 class="slide-title">House Commissioning & Key Handover</h4>
+                                    <p class="slide-caption">Built for an elderly woman in Bane Community who was living in a leaking mud house.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="aimf-birthday-charity-house-commissioning-flyer.jpeg" data-title="Birthday Charity - House Commissioning" data-category="Birthday Charity" data-desc="In celebration of his birthday, Chief Igerebu Idemyor, Mene Gbor Bane, built and commissioned a new house for an elderly woman in Bane Community.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="gallery-slide" data-index="1">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-holding-award-of-honour.jpeg" alt="Chief Igerebu Idemyor Holding Award of Honour" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-award"></i> Leadership Award</span>
+                                    <h4 class="slide-title">Award of Honour Presentation</h4>
+                                    <p class="slide-caption">Recognizing Chief Igerebu Idemyor for distinguished public welfare and philanthropy.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-holding-award-of-honour.jpeg" data-title="Award of Honour Presentation" data-category="Leadership Award" data-desc="Chief Igerebu Idemyor holding his Award of Honour for exemplary leadership and community welfare in Rivers State.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="gallery-slide" data-index="2">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-receiving-award-clergy.jpeg" alt="Chief Igerebu Idemyor Receiving Award from Church Ministers" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-hands-helping"></i> Recognition</span>
+                                    <h4 class="slide-title">Clergy Award Conferment</h4>
+                                    <p class="slide-caption">Archdeaconry clergy presenting Chief Igerebu Idemyor with the Award of Honour.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-receiving-award-clergy.jpeg" data-title="Clergy Award Conferment" data-category="Recognition" data-desc="Handover and congratulations by officiating archdeacons and ministers in recognition of generous community service.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="gallery-slide" data-index="3">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-addressing-congregation.jpeg" alt="Chief Igerebu Idemyor Addressing Congregation" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-bullhorn"></i> Keynote Speech</span>
+                                    <h4 class="slide-title">Addressing the Congregation</h4>
+                                    <p class="slide-caption">Reiterating AIMF's mission of empowering youth and the less privileged.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-addressing-congregation.jpeg" data-title="Addressing the Congregation" data-category="Speech & Vision" data-desc="Chief Igerebu Idemyor addressing worshippers and guests, reiterating AIMF commitment to human capacity development.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="gallery-slide" data-index="4">
+                            <div class="slide-media">
+                                <img src="aimf-house-commissioning-invitation.jpeg" alt="Official Invitation for House Commissioning" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-calendar-check"></i> Official Invitation</span>
+                                    <h4 class="slide-title">Commissioning & Key Presentation</h4>
+                                    <p class="slide-caption">Official event invitation for the Bane Community ceremony.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="aimf-house-commissioning-invitation.jpeg" data-title="Official Commissioning Invitation" data-category="Celebration" data-desc="Official invitation poster for the Bane Community house commissioning and key handover event.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="gallery-slide" data-index="5">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-award-dignitaries.jpeg" alt="Chief Igerebu Idemyor with Dignitaries" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-users"></i> Community Leaders</span>
+                                    <h4 class="slide-title">Dignitaries & Stakeholders</h4>
+                                    <p class="slide-caption">Standing with esteemed community leaders and partners in progress.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-award-dignitaries.jpeg" data-title="Dignitaries & Stakeholders" data-category="Community" data-desc="Chief Igerebu Idemyor alongside distinguished guests and leaders during the award celebration.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 7 -->
+                        <div class="gallery-slide" data-index="6">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-community-leaders-gathering.jpeg" alt="Gathering of Community Elders and Leaders" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-user-friends"></i> Fellowship</span>
+                                    <h4 class="slide-title">Community Elders Gathering</h4>
+                                    <p class="slide-caption">Solidarity and community support during the ceremony.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-community-leaders-gathering.jpeg" data-title="Community Elders Gathering" data-category="Leadership" data-desc="Chief Igerebu seated alongside fellow elders and leaders in fellowship and shared vision for Bane.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 8 -->
+                        <div class="gallery-slide" data-index="7">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-church-celebration-group.jpeg" alt="Celebration with Women and Clergy" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-heart"></i> Celebration</span>
+                                    <h4 class="slide-title">Women & Clergy Fellowship</h4>
+                                    <p class="slide-caption">Joyous celebration with women's leadership and church ministers.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-church-celebration-group.jpeg" data-title="Women & Clergy Fellowship" data-category="Fellowship" data-desc="Celebrating milestones together with community women leaders and the archdeaconry clergy.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 9 -->
+                        <div class="gallery-slide" data-index="8">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-speaking-award-ceremony.jpeg" alt="Chief Igerebu Speaking at Podium" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-microphone-alt"></i> Speech</span>
+                                    <h4 class="slide-title">Remarks on Community Progress</h4>
+                                    <p class="slide-caption">Articulating the AIMF mission of grassroots support and hope.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-speaking-award-ceremony.jpeg" data-title="Remarks on Community Progress" data-category="Vision" data-desc="Chief Igerebu Idemyor speaking at the altar, emphasizing unity and continuous support for the less privileged.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 10 -->
+                        <div class="gallery-slide" data-index="9">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-seated-award.jpeg" alt="Chief Igerebu Idemyor Seated with Plaque" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-medal"></i> Honoree</span>
+                                    <h4 class="slide-title">Honoring Selfless Service</h4>
+                                    <p class="slide-caption">A moment of pride and gratitude for community leadership.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-seated-award.jpeg" data-title="Honoring Selfless Service" data-category="Honoree" data-desc="Chief Igerebu Idemyor seated with the Award of Honour plaque at the ceremony.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 11 -->
+                        <div class="gallery-slide" data-index="10">
+                            <div class="slide-media">
+                                <img src="chief-igerebu-idemyor-award-presentation-priests.jpeg" alt="Award Ceremony with Officiating Priests" loading="lazy">
+                                <div class="slide-overlay">
+                                    <span class="slide-tag"><i class="fas fa-church"></i> Blessing & Honour</span>
+                                    <h4 class="slide-title">Priestly Blessings & Honour</h4>
+                                    <p class="slide-caption">Standing with church archdeacons during the award conferment.</p>
+                                    <button type="button" class="btn-preview-lightbox" data-img="chief-igerebu-idemyor-award-presentation-priests.jpeg" data-title="Priestly Blessings & Honour" data-category="Recognition" data-desc="Chief Igerebu Idemyor receiving blessings and honors from the officiating ministers.">
+                                        <i class="fas fa-search-plus"></i> View Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item tilt-effect">
-                    <img src="community-development-rivers-state.jpeg" alt="Local Gathering for Community Development in Rivers State">
+
+                <!-- Slider Pagination Dots -->
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+
+            <!-- Filter Categories for Full Gallery Grid -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">All Photos <span class="count-pill">17</span></button>
+                <button class="gallery-filter-btn" data-filter="milestone">Latest Milestones <span class="count-pill new-pill">11 New</span></button>
+                <button class="gallery-filter-btn" data-filter="community">Community & Outreach <span class="count-pill">4</span></button>
+                <button class="gallery-filter-btn" data-filter="education">Education & Youth <span class="count-pill">2</span></button>
+            </div>
+
+            <!-- Full Gallery Grid (New Milestone Images Show First!) -->
+            <div class="gallery-grid" id="mainGalleryGrid">
+                <!-- 11 NEW IMAGES FIRST -->
+                <!-- Item 1 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="aimf-birthday-charity-house-commissioning-flyer.jpeg" data-title="Birthday Charity - House Commissioning" data-badge="Birthday Charity" data-desc="Chief Igerebu Idemyor built and commissioned a new home for an elderly woman living in a leaking mud house in Bane.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="aimf-birthday-charity-house-commissioning-flyer.jpeg" alt="Birthday Charity House Commissioning in Bane Community" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Philanthropy</span>
+                            <h4 class="item-title">House Commissioning & Key Handover</h4>
+                            <p class="item-desc">A compassionate gesture of kindness and community by Chief Igerebu Idemyor.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item tilt-effect">
-                    <img src="charity-nigeria-support.jpeg" alt="Charity Support and Distribution in Nigeria">
+
+                <!-- Item 2 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-holding-award-of-honour.jpeg" data-title="Award of Honour Presentation" data-badge="Leadership Award" data-desc="Chief Igerebu Idemyor receiving an Award of Honour for his service to humanity and community empowerment.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-holding-award-of-honour.jpeg" alt="Chief Igerebu Idemyor Holding Award of Honour" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Leadership Award</span>
+                            <h4 class="item-title">Award of Honour</h4>
+                            <p class="item-desc">Recognizing dedicated leadership and public welfare advocacy in Rivers State.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item tilt-effect">
-                    <img src="youth-empowerment-ngo-nigeria.jpeg" alt="Youth Empowerment Foundation Initiative">
+
+                <!-- Item 3 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-receiving-award-clergy.jpeg" data-title="Conferment by the Clergy" data-badge="Ecclesiastical Honour" data-desc="Officiating clergy presenting Chief Igerebu Idemyor with his Award of Honour.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-receiving-award-clergy.jpeg" alt="Chief Igerebu Idemyor Receiving Award from Ministers" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Ecclesiastical Honour</span>
+                            <h4 class="item-title">Clergy Presentation</h4>
+                            <p class="item-desc">Archdeaconry ministers honoring Chief Igerebu for community transformation.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item tilt-effect">
-                    <img src="aimf-commissioning-ceremony.jpeg" alt="AIMF Commissioning Ceremony in Bane Community">
+
+                <!-- Item 4 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-addressing-congregation.jpeg" data-title="Addressing the Congregation" data-badge="Keynote Speech" data-desc="Chief Igerebu Idemyor speaking on youth, women, and community development.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-addressing-congregation.jpeg" alt="Chief Igerebu Idemyor Addressing Congregation" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Speech & Vision</span>
+                            <h4 class="item-title">Keynote Address</h4>
+                            <p class="item-desc">Inspiring grassroots action and collective empowerment in Khana Ogoni.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="aimf-house-commissioning-invitation.jpeg" data-title="House Commissioning Invitation" data-badge="Official Invitation" data-desc="Invitation poster for the house commissioning and key presentation in Bane Community.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="aimf-house-commissioning-invitation.jpeg" alt="House Commissioning Invitation Flyer" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Announcement</span>
+                            <h4 class="item-title">Celebration Invitation</h4>
+                            <p class="item-desc">Marking the official handover of keys to the elderly beneficiary.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-award-dignitaries.jpeg" data-title="Dignitaries & Community Stakeholders" data-badge="Community Leaders" data-desc="Chief Igerebu Idemyor with community leaders at the event.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-award-dignitaries.jpeg" alt="Chief Igerebu Idemyor with Dignitaries" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Community Leaders</span>
+                            <h4 class="item-title">Stakeholder Solidarity</h4>
+                            <p class="item-desc">Community leaders united for progressive development in Bane.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-community-leaders-gathering.jpeg" data-title="Council of Community Elders" data-badge="Leadership Fellowship" data-desc="Fellowship and gathering of respected community elders and stakeholders.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-community-leaders-gathering.jpeg" alt="Community Leaders and Elders Gathering" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Leadership</span>
+                            <h4 class="item-title">Elders Council</h4>
+                            <p class="item-desc">Grassroots unity in support of the foundation's initiatives.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-church-celebration-group.jpeg" data-title="Fellowship & Community Celebration" data-badge="Fellowship" data-desc="Sharing joy with women leaders and church clergy during the celebration.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-church-celebration-group.jpeg" alt="Fellowship with Women and Ministers" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Fellowship</span>
+                            <h4 class="item-title">Community Celebration</h4>
+                            <p class="item-desc">Warm celebration with church clergy and women leaders.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-speaking-award-ceremony.jpeg" data-title="Address to Community and Guests" data-badge="Foundation Vision" data-desc="Chief Igerebu articulating the vision of the Alick Idemyor Mene Foundation.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-speaking-award-ceremony.jpeg" alt="Chief Igerebu Speaking at Award Ceremony" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Foundation Vision</span>
+                            <h4 class="item-title">Vision & Dedication</h4>
+                            <p class="item-desc">Uplifting the vulnerable and driving sustainable empowerment.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-seated-award.jpeg" data-title="Honoring Selfless Service" data-badge="Founder Milestone" data-desc="Chief Igerebu Idemyor reflecting on years of community impact.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-seated-award.jpeg" alt="Chief Igerebu Idemyor Seated with Award" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Founder Milestone</span>
+                            <h4 class="item-title">Selfless Service</h4>
+                            <p class="item-desc">Gratitude and humility for the opportunity to touch lives.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="gallery-item tilt-effect" data-category="milestone" data-img="chief-igerebu-idemyor-award-presentation-priests.jpeg" data-title="Ecclesiastical Conferment" data-badge="Priestly Blessing" data-desc="Posing with officiating ministers following the ceremony.">
+                    <span class="gallery-card-badge"><i class="fas fa-sparkles"></i> New Milestone</span>
+                    <img src="chief-igerebu-idemyor-award-presentation-priests.jpeg" alt="Award Ceremony with Officiating Priests" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Recognition</span>
+                            <h4 class="item-title">Ecclesiastical Honor</h4>
+                            <p class="item-desc">Standing with officiating ministers during the award conferment.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OLD GALLERY IMAGES (FOLLOWING AFTER NEW ONES) -->
+                <!-- Item 12 -->
+                <div class="gallery-item tilt-effect" data-category="community" data-img="aimf-commissioning-ceremony.jpeg" data-title="AIMF Commissioning Ceremony in Bane" data-badge="Community Gathering" data-desc="Historic commissioning ceremony gathering of community stakeholders in Bane.">
+                    <img src="aimf-commissioning-ceremony.jpeg" alt="AIMF Commissioning Ceremony in Bane Community" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Community</span>
+                            <h4 class="item-title">Commissioning Ceremony</h4>
+                            <p class="item-desc">AIMF inaugural commissioning in Bane Community.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 13 -->
+                <div class="gallery-item tilt-effect" data-category="community" data-img="aimf-community-support-khana-ogoni.jpeg" data-title="Community Support Outreach" data-badge="Welfare Relief" data-desc="Grassroots distribution and essential welfare support for families in Khana Ogoni.">
+                    <img src="aimf-community-support-khana-ogoni.jpeg" alt="Community Support Event in Khana Ogoni" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Community Support</span>
+                            <h4 class="item-title">Community Support Event</h4>
+                            <p class="item-desc">Direct welfare relief for families in need.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 14 -->
+                <div class="gallery-item tilt-effect" data-category="education" data-img="education-ngo-khana-ogoni.jpeg" data-title="Education NGO Programs" data-badge="Education" data-desc="Educational assistance and youth development initiatives across Khana Ogoni.">
+                    <img src="education-ngo-khana-ogoni.jpeg" alt="Education NGO Programs in Khana Ogoni" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Education</span>
+                            <h4 class="item-title">Education Initiatives</h4>
+                            <p class="item-desc">Empowering children with books, fees, and learning resources.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 15 -->
+                <div class="gallery-item tilt-effect" data-category="community" data-img="community-development-rivers-state.jpeg" data-title="Community Development Forum" data-badge="Infrastructure" data-desc="Local gathering for community development and infrastructure planning in Rivers State.">
+                    <img src="community-development-rivers-state.jpeg" alt="Local Gathering for Community Development in Rivers State" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Development</span>
+                            <h4 class="item-title">Development Planning</h4>
+                            <p class="item-desc">Collaborating on local infrastructure and welfare initiatives.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 16 -->
+                <div class="gallery-item tilt-effect" data-category="community" data-img="charity-nigeria-support.jpeg" data-title="Charity Support & Distribution" data-badge="Charity Outreach" data-desc="Charity support and distribution drive reaching less privileged residents.">
+                    <img src="charity-nigeria-support.jpeg" alt="Charity Support and Distribution in Nigeria" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Relief & Welfare</span>
+                            <h4 class="item-title">Charity Distribution</h4>
+                            <p class="item-desc">Essential resources delivered directly to household doorsteps.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 17 -->
+                <div class="gallery-item tilt-effect" data-category="education" data-img="youth-empowerment-ngo-nigeria.jpeg" data-title="Youth Empowerment Forum" data-badge="Youth Empowerment" data-desc="Vocational mentorship and skill acquisition programs for young men and women.">
+                    <img src="youth-empowerment-ngo-nigeria.jpeg" alt="Youth Empowerment Foundation Initiative" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <div class="overlay-inner">
+                            <span class="item-category">Youth Empowerment</span>
+                            <h4 class="item-title">Youth Skills Forum</h4>
+                            <p class="item-desc">Training young leaders to build sustainable livelihoods.</p>
+                            <span class="view-btn"><i class="fas fa-expand"></i> View</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div id="galleryLightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image Preview Modal">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Preview">&times;</button>
+            <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Previous Image"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Next Image"><i class="fas fa-chevron-right"></i></button>
+            <div class="lightbox-figure">
+                <img id="lightboxImg" src="" alt="Expanded Gallery Preview">
+                <div class="lightbox-caption">
+                    <span id="lightboxCategory" class="lightbox-cat-badge">Milestone</span>
+                    <h3 id="lightboxTitle">Image Title</h3>
+                    <p id="lightboxDesc">Detailed description of the image.</p>
+                    <div class="lightbox-counter"><span id="lightboxIndex">1</span> / <span id="lightboxTotal">17</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Impact/Stats Section -->
     <section id="impact" class="section impact" style="background-image: url('impact_image.png');">

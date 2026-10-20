@@ -199,4 +199,332 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 8. Gallery Featured Loop Slider
+    const sliderContainer = document.getElementById('gallerySliderContainer');
+    const sliderTrack = document.getElementById('gallerySliderTrack');
+    const prevBtn = document.getElementById('galleryPrevBtn');
+    const nextBtn = document.getElementById('galleryNextBtn');
+    const playStatus = document.getElementById('sliderPlayStatus');
+    const dotsContainer = document.getElementById('sliderDots');
+
+    if (sliderTrack && sliderContainer) {
+        const slides = sliderTrack.querySelectorAll('.gallery-slide');
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+        let autoLoopTimer = null;
+        let isPaused = false;
+
+        const getVisibleSlides = () => {
+            if (window.innerWidth <= 600) return 1;
+            if (window.innerWidth <= 992) return 2;
+            return 3;
+        };
+
+        const getMaxIndex = () => {
+            const visible = getVisibleSlides();
+            return Math.max(0, totalSlides - visible);
+        };
+
+        const renderDots = () => {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            const maxIdx = getMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('slider-dot');
+                if (i === currentIndex) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                dotsContainer.appendChild(dot);
+            }
+        };
+
+        const updateDots = () => {
+            if (!dotsContainer) return;
+            const dots = dotsContainer.querySelectorAll('.slider-dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentIndex);
+            });
+        };
+
+        const updateSliderPosition = () => {
+            const visible = getVisibleSlides();
+            const slideElement = slides[0];
+            if (!slideElement) return;
+
+            // Calculate slide width + gap (20px)
+            const slideWidth = slideElement.getBoundingClientRect().width;
+            const gap = 20;
+            const offset = currentIndex * (slideWidth + gap);
+            sliderTrack.style.transform = `translateX(-${offset}px)`;
+            updateDots();
+        };
+
+        const goToSlide = (index) => {
+            const maxIdx = getMaxIndex();
+            if (index > maxIdx) {
+                currentIndex = 0; // Infinite loop wrap
+            } else if (index < 0) {
+                currentIndex = maxIdx; // Wrap to end
+            } else {
+                currentIndex = index;
+            }
+            updateSliderPosition();
+        };
+
+        const nextSlide = () => {
+            const maxIdx = getMaxIndex();
+            if (currentIndex >= maxIdx) {
+                goToSlide(0);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        };
+
+        const prevSlide = () => {
+            const maxIdx = getMaxIndex();
+            if (currentIndex <= 0) {
+                goToSlide(maxIdx);
+            } else {
+                goToSlide(currentIndex - 1);
+            }
+        };
+
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+
+        const startAutoplay = () => {
+            stopAutoplay();
+            autoLoopTimer = setInterval(() => {
+                if (!isPaused) {
+                    nextSlide();
+                }
+            }, 3800);
+        };
+
+        const stopAutoplay = () => {
+            if (autoLoopTimer) {
+                clearInterval(autoLoopTimer);
+                autoLoopTimer = null;
+            }
+        };
+
+        const resetAutoplay = () => {
+            stopAutoplay();
+            startAutoplay();
+        };
+
+        // Pause on mouse hover / focus
+        sliderContainer.addEventListener('mouseenter', () => {
+            isPaused = true;
+            if (playStatus) {
+                playStatus.classList.add('paused');
+                playStatus.querySelector('.indicator-text').textContent = 'Paused';
+            }
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            isPaused = false;
+            if (playStatus) {
+                playStatus.classList.remove('paused');
+                playStatus.querySelector('.indicator-text').textContent = 'Auto-looping';
+            }
+        });
+
+        // Touch Drag / Swipe Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            isPaused = true;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (diff > 45) {
+                nextSlide();
+            } else if (diff < -45) {
+                prevSlide();
+            }
+            isPaused = false;
+        }, { passive: true });
+
+        // Window resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                renderDots();
+                const maxIdx = getMaxIndex();
+                if (currentIndex > maxIdx) currentIndex = maxIdx;
+                updateSliderPosition();
+            }, 150);
+        });
+
+        // Initial setup
+        renderDots();
+        updateSliderPosition();
+        startAutoplay();
+    }
+
+    // 9. Gallery Filter Logic
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.classList.remove('hidden');
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.96)';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // 10. Universal Lightbox Modal
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxIndex = document.getElementById('lightboxIndex');
+    const lightboxTotal = document.getElementById('lightboxTotal');
+    const lightboxClose = document.getElementById('lightboxCloseBtn');
+    const lightboxPrev = document.getElementById('lightboxPrevBtn');
+    const lightboxNext = document.getElementById('lightboxNextBtn');
+    const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
+
+    // Compile complete gallery items data
+    const allGalleryData = Array.from(galleryItems).map(item => ({
+        src: item.getAttribute('data-img'),
+        title: item.getAttribute('data-title') || 'Gallery Photo',
+        category: item.getAttribute('data-badge') || item.querySelector('.item-category')?.textContent || 'Milestone',
+        desc: item.getAttribute('data-desc') || item.querySelector('.item-desc')?.textContent || ''
+    }));
+
+    if (lightboxTotal) {
+        lightboxTotal.textContent = allGalleryData.length;
+    }
+
+    let activeLightboxIndex = 0;
+
+    const openLightbox = (index) => {
+        if (!lightbox || !allGalleryData[index]) return;
+        activeLightboxIndex = index;
+        const item = allGalleryData[activeLightboxIndex];
+
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.title;
+        lightboxTitle.textContent = item.title;
+        lightboxCategory.textContent = item.category;
+        lightboxDesc.textContent = item.desc;
+        if (lightboxIndex) lightboxIndex.textContent = activeLightboxIndex + 1;
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    const showPrevLightbox = () => {
+        const nextIdx = (activeLightboxIndex - 1 + allGalleryData.length) % allGalleryData.length;
+        openLightbox(nextIdx);
+    };
+
+    const showNextLightbox = () => {
+        const nextIdx = (activeLightboxIndex + 1) % allGalleryData.length;
+        openLightbox(nextIdx);
+    };
+
+    // Attach click events on gallery grid items
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    // Attach click events on slider lightbox buttons
+    const previewButtons = document.querySelectorAll('.btn-preview-lightbox');
+    previewButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const imgSrc = btn.getAttribute('data-img');
+            const foundIndex = allGalleryData.findIndex(d => d.src === imgSrc);
+            if (foundIndex !== -1) {
+                openLightbox(foundIndex);
+            } else {
+                // Fallback direct open
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = btn.getAttribute('data-title') || 'Milestone Preview';
+                lightboxTitle.textContent = btn.getAttribute('data-title') || 'Milestone Preview';
+                lightboxCategory.textContent = btn.getAttribute('data-category') || 'Featured Milestone';
+                lightboxDesc.textContent = btn.getAttribute('data-desc') || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevLightbox);
+    if (lightboxNext) lightboxNext.addEventListener('click', showNextLightbox);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevLightbox();
+        if (e.key === 'ArrowRight') showNextLightbox();
+    });
+
+    // 11. Refresh custom cursor bindings for dynamic elements
+    if (window.matchMedia("(pointer: fine)").matches) {
+        const newInteractables = document.querySelectorAll('.slider-arrow, .gallery-filter-btn, .btn-preview-lightbox, .lightbox-close, .lightbox-nav, .slider-dot, .gallery-item');
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        if (cursor && follower) {
+            newInteractables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursor.style.backgroundColor = 'var(--accent)';
+                    follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    follower.style.borderColor = 'var(--accent)';
+                    follower.style.backgroundColor = 'rgba(216, 90, 106, 0.1)';
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.backgroundColor = 'var(--secondary)';
+                    follower.style.transform = 'translate(-50%, -50%) scale(1)';
+                    follower.style.borderColor = 'rgba(230, 168, 34, 0.5)';
+                    follower.style.backgroundColor = 'transparent';
+                });
+            });
+        }
+    }
 });
